@@ -20,12 +20,12 @@ Create and empty dictionary to hold {chromosome number / POS : UMI / Strand}
 
 - Open the output sam file which will be written to.
     - Open the input file to read from 
-        -Iterate through the file by line
-            -The first column will contain the UMI, discard the read if the UMI is not in the known list. 
-            -Go chromosome by chromosome and look for reads that have the same POS (possible to reset dict for each chromosome??)
-                -Will need a way to identify soft clipping, probably a function to recognize and adjust the POS accordingly?
-                    -Add that POS to the dictionary, along with the UMI and strand (+ or -) as tuple value 
-                    -Will probably need a funtion(s) to return this information from the line directly
+        - Iterate through the file by line
+            - The first column will contain the UMI, discard the read if the UMI is not in the known list. 
+            - Go chromosome by chromosome and look for reads that have the same POS (possible to reset dict for each chromosome??)
+                - Will need a way to identify soft clipping, probably a function to recognize and adjust the POS accordingly?
+                    - Add that POS to the dictionary, along with the UMI and strand (+ or -) as tuple value 
+                    - Will probably need a funtion(s) to return this information from the line directly
                         -If that entry already exist in the dictionary, continue (don't add to dictionary)
                         -Should result in a dictionary containing all of the unique reads for the SAM file 
                         (I think this will work, might have to adjust the data structure)
