@@ -23,19 +23,19 @@ Create and empty dictionary to hold {chromosome number / POS : UMI / Strand}
         -Iterate through the file by line
             -The first column will contain the UMI, discard the read if the UMI is not in the known list. 
             -Go chromosome by chromosome and look for reads that have the same POS (possible to reset dict for each chromosome??)
-                * Will need a way to identify soft clipping, probably a function to recognize and adjust the POS accordingly?
-                
-                -Add that POS to the dictionary, along with the UMI and strand (+ or -) as tuple value 
-                    * Will probably need a funtion(s) to return this information from the line directly
-                -If that entry already exist in the dictionary, continue (don't add to dictionary)
-                -Should result in a dictionary containing all of the unique reads for the SAM file 
-                (I think this will work, might have to adjust the data structure)
+                -Will need a way to identify soft clipping, probably a function to recognize and adjust the POS accordingly?
+                    -Add that POS to the dictionary, along with the UMI and strand (+ or -) as tuple value 
+                    -Will probably need a funtion(s) to return this information from the line directly
+                        -If that entry already exist in the dictionary, continue (don't add to dictionary)
+                        -Should result in a dictionary containing all of the unique reads for the SAM file 
+                        (I think this will work, might have to adjust the data structure)
 
 - use the dictionary keys and values to write out the appropriate information to a properly formated output sam file
 
 
 Functions
 
+```
 def UMI(line: str) -> str:
     ''' Takes the line from the file as an argument and returns the associated UMI in the first column '''
     return UMI
@@ -55,3 +55,4 @@ def soft_clip(line: str) -> int:
     ''' Takes the line from the file as an arguement and uses the CIGAR string to determine if soft clipping is present at the left most position. Returns the corrected POS value if so... still haven't figured this out (maybe need two functions?)
     return POS
     Ex: IDK
+```
