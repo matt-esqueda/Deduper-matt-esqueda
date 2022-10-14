@@ -1,0 +1,1 @@
+The input sam file includes a unique read and a pair of reads to test different cases of PCR duplicates. Each pair should test for a different criteria based on column (UMI, Strand, Chromosome, POS, soft clipping).
